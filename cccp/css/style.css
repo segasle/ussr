@@ -207,3 +207,33 @@ p {
   background: #FFD996;
   padding: 10px;
 }
+@media (min-width: 960px) {
+  .container-row {
+    display: table;
+    width: 100%;
+  }
+  .container-row .menu,
+  .container-row .content {
+    display: table-cell;
+  }
+  .container-row .menu {
+    width: 20%;
+  }
+  .container-row .menu label,
+  .container-row .menu .burger,
+  .container-row .menu .burger_open {
+    display: none;
+  }
+  .container-row .menu nav {
+    display: block;
+    top: 0;
+  }
+  .container-row .menu nav ul li {
+    text-align: center;
+    font-size: 20px;
+    padding: 0;
+  }
+  .container-row .content {
+    width: 80%;
+  }
+}
