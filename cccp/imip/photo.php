@@ -59,13 +59,21 @@ $elements = array(
 $content = '<div class="description"><div class="row">';
 $images = '<div class="description"><div class="row">';
 $ul = '<ul>';
+$sup = '<ul>';
 foreach ($elements as $element) {
     $out = '<h1 class="text-center">' . $element['header'] . '</h1>';
     foreach ($element['content'] as $item) {
         $content .= '<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"><img src="' . $item['img'] . '" alt="" class="photo">';
         foreach ($item['text'] as $value) {
-            $ul .= '<li>' . $value['li'] . '<li>';
-
+            $ul .= '<li>' . $value['li'] . '</li>';
+            if (isset($value['sup'])){
+                if (is_array($value['sup']) || is_object($value['sup'])){
+                    foreach ($value['sup'] as $item){
+                            $ul .= $sup .'<li>' . $item['number'] . '</li>';
+                    }
+                    $ul .= '</ul>';
+                }
+            }
         }
         $content .= $ul . '</ul></div>';
     }
